@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "finlaw": { "command": "node", "args": ["mcp/server.mjs"] }
+  }
+}

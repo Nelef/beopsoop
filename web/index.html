@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>법숲 — 법 조문으로 답하는 AI</title>
+<link rel="icon" type="image/webp" href="data:image/webp;base64,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">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 법숲 — 대화형 화면. 질문마다 처리 단계(법령 용어로 바꾸기 → 하이브리드 검색 → 조문 인용 답변 → 근거 점검)를 실시간으로 보여 준다.
+   서버: POST api/ask {stream:true} → 줄마다 {step,…}, 마지막 {step:'done',…결과} · api/search · api/meta */
+:root {
+  --avatar: url('data:image/webp;base64,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');
+  --bg: oklch(98.6% 0.003 150); --side: oklch(96.4% 0.005 150); --card: oklch(100% 0 0 / .78); --bubble: oklch(94.6% 0.008 150);
+  --ink: oklch(22% 0.01 160); --ink-2: oklch(38% 0.01 160); --ink-3: oklch(52% 0.01 160); --ink-4: oklch(66% 0.008 160);
+  --line: oklch(22% 0.01 160 / .09); --line-2: oklch(22% 0.01 160 / .16);
+  --accent: oklch(52% 0.11 155); --accent-ink: oklch(42% 0.09 155); --accent-wash: oklch(94% 0.04 155); --accent-glow: oklch(52% 0.11 155 / .18);
+  --warn: oklch(62% 0.13 62); --warn-wash: oklch(95.5% 0.035 75);
+  --sans: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1); --side-w: 280px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: oklch(19% 0.008 160); --side: oklch(15.5% 0.008 160); --card: oklch(23% 0.01 160 / .8); --bubble: oklch(27% 0.012 160);
+    --ink: oklch(94% 0.006 150); --ink-2: oklch(82% 0.008 150); --ink-3: oklch(67% 0.01 150); --ink-4: oklch(52% 0.01 150);
+    --line: oklch(100% 0 0 / .08); --line-2: oklch(100% 0 0 / .14);
+    --accent: oklch(74% 0.12 155); --accent-ink: oklch(80% 0.11 155); --accent-wash: oklch(32% 0.05 155); --accent-glow: oklch(74% 0.12 155 / .2);
+    --warn: oklch(78% 0.12 75); --warn-wash: oklch(30% 0.04 70); }
+}
+* { box-sizing: border-box; }
+/* 스크롤바 — 얇고 둥글게, 바탕색에 맞춰 */
+html, .scroll, .exlist, .db { scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-corner { background: transparent; }
+::selection { background: var(--accent-glow); }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--sans); letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+.app { display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); height: 100dvh; }
+
+/* ── 사이드바 ── */
+.side { background: var(--side); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; padding: 14px 12px; gap: 6px; }
+.brand { display: flex; align-items: center; gap: 9px; padding: 6px 8px 12px; font-weight: 800; font-size: 19px; letter-spacing: -0.03em; text-decoration: none; }
+.brand img { width: 30px; height: 30px; border-radius: 8px; }
+.sbtn { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 10px; border-radius: 10px; cursor: pointer; font-size: 14.5px; font-weight: 600; color: var(--ink-2); }
+.sbtn:hover { background: var(--line); color: var(--ink); }
+.sbtn svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sbtn.new { border: 1px solid var(--line-2); color: var(--ink); margin-bottom: 8px; }
+.sbtn .n { margin-left: auto; font-size: 12px; color: var(--ink-4); font-weight: 600; }
+.shead { font-size: 12px; font-weight: 700; color: var(--ink-4); padding: 12px 10px 4px; letter-spacing: .02em; }
+.exlist { display: flex; flex-direction: column; gap: 1px; overflow-y: auto; min-height: 0; flex: 1; margin: 0 -4px; padding: 0 4px; }
+.ex { all: unset; box-sizing: border-box; display: block; padding: 8px 10px; border-radius: 10px; cursor: pointer; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.ex:hover { background: var(--line); color: var(--ink); }
+.oos { display: inline-block; margin-left: 6px; padding: 0 7px; border: 1px solid var(--warn); border-radius: 99px; color: var(--warn); font-size: 11px; font-weight: 700; line-height: 1.6; white-space: nowrap; vertical-align: 1px; }
+.sfoot { border-top: 1px solid var(--line); padding-top: 10px; display: flex; align-items: center; gap: 8px; }
+.role { font-size: 11.5px; font-weight: 800; letter-spacing: .06em; color: var(--accent-ink); background: var(--accent-wash); padding: 4px 8px; border-radius: 6px; }
+.sfoot .sbtn { width: auto; margin-left: auto; padding: 8px 10px; }
+
+/* ── 본문 ── */
+.main { display: flex; flex-direction: column; min-width: 0; min-height: 0; position: relative; }
+.topbar { display: none; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.topbar b { font-size: 17px; letter-spacing: -0.03em; }
+.ibtn { all: unset; cursor: pointer; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; }
+.ibtn:hover { background: var(--line); }
+.ibtn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.scroll { position: relative; flex: 1; overflow-y: auto; min-height: 0; scroll-behavior: smooth; }
+.thread { max-width: 800px; margin: 0 auto; padding: 28px 20px 24px; display: flex; flex-direction: column; gap: 26px; }
+
+/* 빈 화면 */
+.hello { min-height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6vh 0 2vh; }
+.hello h1 { margin: 0; font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1.05; }
+.hello h1 span { color: var(--accent); }
+.hello-logo { width: 72px; height: 72px; border-radius: 20px; margin-bottom: 14px; box-shadow: 0 16px 36px -18px oklch(0% 0 0 / .5); }
+.hello p { margin: 12px 0 0; color: var(--ink-3); font-size: 16px; max-width: 30em; }
+.flow { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin: 20px 0 0; font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
+.flow span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px 5px 5px; border-radius: 99px; background: var(--line); }
+.flow b { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--bg); font-size: 11px; }
+.flow i { font-style: normal; color: var(--ink-4); }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 26px; width: 100%; max-width: 680px; }
+.qcard { all: unset; box-sizing: border-box; cursor: pointer; text-align: left; padding: 14px 16px; border: 1px solid var(--line-2); border-radius: 14px; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); background: var(--card); transition: border-color .25s var(--ease), transform .25s var(--ease); }
+.qcard:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-1px); }
+.demo-note { margin-top: 18px; font-size: 13px; color: var(--ink-3); background: var(--warn-wash); border-radius: 10px; padding: 8px 12px; max-width: 680px; }
+
+/* 말풍선 */
+.msg-user { align-self: flex-end; max-width: 82%; background: var(--bubble); border-radius: 20px 20px 6px 20px; padding: 11px 16px; font-size: 15.5px; line-height: 1.55; white-space: pre-wrap; animation: in .4s var(--ease); }
+.msg-ai { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; animation: in .4s var(--ease); }
+.avatar { width: 32px; height: 32px; border-radius: 9px; background: var(--avatar) center / cover no-repeat; }
+@keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ── 단계 카드 ── */
+.steps { border: 1px solid var(--line-2); border-radius: 16px; background: var(--card); overflow: hidden; }
+.steps-h { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 16px; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
+.steps-h .sum { font-weight: 500; color: var(--ink-3); }
+.steps-h .chev { margin-left: auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform .3s var(--ease); }
+.steps.fold .chev { transform: rotate(-90deg); }
+.steps.fold ol { display: none; }
+.steps ol { list-style: none; margin: 0; padding: 4px 16px 14px; position: relative; }
+.st { position: relative; display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 2px 12px; padding: 9px 0; }
+.st:not(:last-child)::before { content: ''; position: absolute; left: 12.5px; top: 36px; bottom: -6px; width: 1.5px; background: var(--line-2); }
+.st.done:not(:last-child)::before { background: var(--accent); opacity: .45; }
+.dot { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--line-2); background: var(--bg); color: var(--ink-4); font-size: 12px; font-weight: 800; z-index: 1; transition: background .3s, border-color .3s, color .3s; }
+.dot svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.st.active .dot { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px var(--accent-glow); animation: pulse 1.4s ease-in-out infinite; }
+.st.done .dot { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.st.warn .dot { background: var(--warn); border-color: var(--warn); color: var(--bg); }
+.st.skip .dot { border-style: dashed; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 9px transparent; } }
+.st .t { font-size: 14.5px; font-weight: 700; line-height: 26px; color: var(--ink-3); }
+.st.active .t, .st.done .t, .st.warn .t { color: var(--ink); }
+.st .t small { font-weight: 500; color: var(--ink-4); margin-left: 6px; font-size: 12.5px; }
+.st .ms { font: 600 12px/26px var(--mono); color: var(--ink-4); }
+.st .d { grid-column: 2 / 4; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+.st .d:empty { display: none; }
+.st.active .t::after { content: ' …'; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .2; } }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.c { padding: 2px 9px; border-radius: 99px; background: var(--line); font-size: 12.5px; color: var(--ink-2); animation: pop .35s var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
+.c.law { background: var(--accent-wash); color: var(--accent-ink); font-weight: 700; }
+.c.hit { display: inline-flex; gap: 6px; align-items: center; }
+.c.hit b { font: 700 11px var(--mono); color: var(--accent-ink); }
+.c.new { outline: 1.5px solid var(--accent); }
+@keyframes pop { from { opacity: 0; transform: translateY(4px) scale(.96); } }
+.sub { color: var(--ink-3); font-size: 12.5px; }
+.replay { font-size: 11.5px; font-weight: 700; color: var(--warn); border: 1px solid var(--warn); border-radius: 99px; padding: 0 7px; margin-left: 6px; }
+
+/* 답변 · 근거 */
+.answer { font-size: 16px; line-height: 1.8; white-space: pre-wrap; margin-top: 14px; animation: in .5s var(--ease); }
+.cite { all: unset; cursor: pointer; display: inline-grid; place-items: center; min-width: 19px; height: 19px; padding: 0 4px; margin: 0 1px; border-radius: 6px; background: var(--accent-wash); color: var(--accent-ink); font: 700 11.5px/1 var(--mono); vertical-align: 2px; }
+.cite:hover { background: var(--accent); color: var(--bg); }
+.notice { margin-top: 14px; padding: 11px 14px; border-radius: 12px; background: var(--warn-wash); border-left: 3px solid var(--warn); font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+.notice b { color: var(--ink); }
+.srcs { margin-top: 16px; }
+.srcs-h { font-size: 13px; font-weight: 700; color: var(--ink-3); margin-bottom: 8px; }
+.src { border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; margin-bottom: 6px; cursor: pointer; background: var(--card); transition: border-color .25s var(--ease), box-shadow .3s var(--ease); }
+.src:hover { border-color: var(--line-2); }
+.src.used { border-left: 3px solid var(--accent); }
+.src.flash { box-shadow: 0 0 0 3px var(--accent-glow); border-color: var(--accent); }
+.src-h { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.src-h .no { font: 700 12px var(--mono); color: var(--ink-4); }
+.src.used .no { color: var(--accent-ink); }
+.src-h b { font-size: 14.5px; }
+.src-h .since { font-size: 12px; color: var(--ink-4); }
+.tag { font-size: 11px; font-weight: 700; padding: 0 7px; border-radius: 99px; background: var(--accent-wash); color: var(--accent-ink); line-height: 1.7; }
+.tag.ref { background: var(--line); color: var(--ink-3); }
+.src pre { white-space: pre-wrap; font: 400 13.5px/1.7 var(--sans); color: var(--ink-2); margin: 6px 0 0; max-height: 3.4em; overflow: hidden; -webkit-mask-image: linear-gradient(#000 40%, transparent); mask-image: linear-gradient(#000 40%, transparent); }
+.src.open pre { max-height: none; -webkit-mask-image: none; mask-image: none; }
+
+/* ── 입력창 ── */
+.composer { padding: 10px 20px max(14px, env(safe-area-inset-bottom)); background: linear-gradient(transparent, var(--bg) 30%); }
+.box { max-width: 800px; margin: 0 auto; border: 1px solid var(--line-2); border-radius: 22px; background: var(--card); padding: 10px 10px 8px 16px; box-shadow: 0 8px 30px -18px oklch(0% 0 0 / .35); }
+.box:focus-within { border-color: var(--accent); }
+.box textarea { width: 100%; border: 0; outline: 0; resize: none; background: transparent; font-size: 16px; line-height: 1.55; max-height: 200px; padding: 4px 0; }
+.row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tg { all: unset; cursor: pointer; font-size: 12.5px; font-weight: 600; color: var(--ink-3); padding: 5px 10px; border-radius: 99px; border: 1px solid var(--line-2); }
+.tg[aria-pressed="true"] { background: var(--accent-wash); border-color: transparent; color: var(--accent-ink); }
+.row select { font-size: 12.5px; font-weight: 600; color: var(--ink-3); background: transparent; border: 1px solid var(--line-2); border-radius: 99px; padding: 4px 8px; }
+.send { all: unset; cursor: pointer; margin-left: auto; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--bg); transition: opacity .2s; }
+.send:disabled { opacity: .3; cursor: default; }
+.send svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.fine { max-width: 800px; margin: 6px auto 0; text-align: center; font-size: 11.5px; color: var(--ink-4); }
+
+/* 대화창(법령 · 평가) */
+dialog { border: 1px solid var(--line-2); border-radius: 18px; background: var(--bg); color: var(--ink); padding: 0; width: min(720px, calc(100vw - 32px)); max-height: 82vh; }
+dialog::backdrop { background: oklch(0% 0 0 / .4); backdrop-filter: blur(3px); }
+.dh { display: flex; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); }
+.dh h2 { margin: 0; font-size: 17px; }
+.dh .ibtn { margin-left: auto; }
+.db { padding: 14px 18px 18px; overflow-y: auto; }
+.db .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 10px; }
+.laws { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); column-gap: 22px; }
+.laws li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.laws time { color: var(--ink-4); font-size: 12px; white-space: nowrap; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+tr.me td { font-weight: 700; color: var(--accent-ink); }
+.bar { display: inline-flex; align-items: center; gap: 6px; }
+.bar i { display: inline-block; height: 6px; width: calc(var(--v) * 70px); border-radius: 6px; background: var(--ink-4); }
+tr.me .bar i { background: var(--accent); }
+
+
+/* 데모 한도 — 오른쪽 아래 떠 있는 알약 · 누르면 계산 방식 */
+.quota { position: absolute; right: 20px; bottom: var(--qb, 130px); z-index: 12; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.qbtn { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 8px; border-radius: 99px; background: var(--card); border: 1px solid var(--line-2); box-shadow: 0 10px 26px -14px oklch(0% 0 0 / .45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
+.qbtn:hover { border-color: var(--accent); }
+.ring { --p: 0; width: 22px; height: 22px; border-radius: 50%; background: conic-gradient(var(--qc, var(--accent)) calc(var(--p) * 1turn), var(--line-2) 0); display: grid; place-items: center; }
+.ring::after { content: ''; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); }
+.qpanel { width: min(330px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--line-2); border-radius: 16px; padding: 14px 16px; box-shadow: 0 24px 50px -24px oklch(0% 0 0 / .55); font-size: 13px; animation: in .3s var(--ease); }
+.qpanel h3 { margin: 0 0 10px; font-size: 14px; }
+.qrow { margin-bottom: 11px; }
+.qrow .top { display: flex; justify-content: space-between; gap: 10px; font-weight: 700; color: var(--ink); }
+.qrow .top span:last-child { font-family: var(--mono); font-size: 12.5px; }
+.qbar { height: 6px; border-radius: 6px; background: var(--line); margin: 5px 0 4px; overflow: hidden; }
+.qbar i { display: block; height: 100%; width: calc(var(--v) * 100%); background: var(--qc, var(--accent)); border-radius: inherit; transition: width .5s var(--ease); }
+.qrow p { margin: 0; color: var(--ink-3); font-size: 12px; line-height: 1.5; }
+.qfoot { border-top: 1px solid var(--line); padding-top: 9px; color: var(--ink-3); font-size: 12px; line-height: 1.6; }
+.qfoot a { color: var(--accent-ink); font-weight: 700; }
+@media (max-width: 860px) { .quota { right: 12px; } .qbtn { padding: 6px 10px 6px 7px; font-size: 12px; } }
+
+/* 휴대폰 */
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .side { position: fixed; z-index: 30; inset: 0 auto 0 0; width: min(300px, 86vw); transform: translateX(-102%); transition: transform .35s var(--ease); box-shadow: 0 0 40px oklch(0% 0 0 / .3); }
+  .app.menu .side { transform: none; }
+  .scrim { position: fixed; inset: 0; z-index: 29; background: oklch(0% 0 0 / .35); }
+  .topbar { display: flex; }
+  .thread { padding: 18px 14px 18px; gap: 20px; }
+  .cards { grid-template-columns: 1fr; }
+  .cards .qcard:nth-child(n+4) { display: none; }
+  .msg-ai { grid-template-columns: 1fr; gap: 8px; }
+  .avatar { display: none; }
+  .composer { padding: 8px 10px max(10px, env(safe-area-inset-bottom)); }
+  .fine { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .scroll { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="side" id="side">
+    <a class="brand" href="./"><img src="data:image/webp;base64,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" alt="" width="30" height="30">법숲</a>
+    <button class="sbtn new" id="newchat"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>새 대화</button>
+    <div class="shead">예시 질문</div>
+    <div class="exlist" id="exlist"></div>
+    <div class="shead">정보</div>
+    <button class="sbtn" id="openLaws"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>색인한 법령<span class="n" id="lawN"></span></button>
+    <button class="sbtn" id="openEval" hidden><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>검색 평가 결과</button>
+    <div class="sfoot"><span class="role" id="role">…</span><button class="sbtn" id="logout"></button></div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main class="main">
+    <div class="topbar"><button class="ibtn" id="menu" aria-label="메뉴"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><b>법숲</b><button class="ibtn" id="newchat2" aria-label="새 대화" style="margin-left:auto"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div>
+    <div class="scroll" id="scroll">
+      <div class="thread" id="thread">
+        <section class="hello" id="hello">
+          <img class="hello-logo" src="data:image/webp;base64,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" alt="" width="72" height="72"><h1>법<span>숲</span></h1>
+          <p>일상의 법적 질문을 일상의 말로 물어보세요. 법 조문을 찾아 그 안에서만 답하고, 근거가 없으면 답하지 않습니다.</p>
+          <div class="flow" aria-label="처리 단계"><span><b>1</b>법령 용어로 바꾸기</span><i>→</i><span><b>2</b>하이브리드 검색</span><i>→</i><span><b>3</b>조문 인용 답변</span><i>→</i><span><b>4</b>근거 점검</span></div>
+          <div class="cards" id="cards"></div>
+          <div class="demo-note" id="demoNote" hidden></div>
+        </section>
+      </div>
+    </div>
+    <div class="quota" id="quota" hidden><div class="qpanel" id="qcard" hidden></div><button class="qbtn" id="qbtn" aria-expanded="false"><span class="ring" id="qring"></span><span id="qtxt">데모 한도</span></button></div>
+    <div class="composer">
+      <div class="box">
+        <textarea id="q" rows="1" maxlength="500" placeholder="예) 중고로 산 노트북이 일주일 만에 고장 났어요. 환불받을 수 있나요?"></textarea>
+        <div class="row">
+          <button class="tg" id="rw" aria-pressed="true" title="일상어를 법령 용어로 바꿔 검색">질의 재작성</button>
+          <button class="tg" id="only" aria-pressed="false" title="답변 없이 근거 조문만 찾기">검색만</button>
+          <select id="mode" aria-label="검색 방식"><option value="hybrid">하이브리드</option><option value="bm25">BM25</option><option value="dense">의미 검색</option></select>
+          <button class="send" id="go" aria-label="보내기" disabled><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+        </div>
+      </div>
+      <p class="fine" id="fine">법률 자문이 아닙니다 · 근거 조문을 꼭 직접 확인하세요</p>
+    </div>
+  </main>
+</div>
+
+<dialog id="dlgLaws"><div class="dh"><h2>색인한 법령</h2><button class="ibtn" data-close aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="db"><p class="meta" id="lawmeta"></p><ul class="laws" id="lawlist"></ul></div></dialog>
+<dialog id="dlgEval"><div class="dh"><h2>검색 평가 결과</h2><button class="ibtn" data-close aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="db"><p class="meta" id="evalmeta"></p><div id="evaltbl"></div></div></dialog>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const defaultExamples = ['중고거래로 산 노트북이 일주일 만에 고장 났어요. 판매자한테 환불받을 수 있나요?', '당근에서 산 물건이 마음에 안 드는데 7일 안에 환불받을 수 있나요?', '개인정보가 유출되면 정보주체에게 언제까지 알려야 하나요?', '접근매체를 분실했을 때 금융회사는 누가 책임지나요?', '종합소득세 신고 기한이 언제인가요?'];
+const oosSet = new Set(['종합소득세 신고 기한이 언제인가요?']);   // 색인 밖(소득세법 없음) — 지어내지 않고 거절하는지 보여 주는 예시
+let lawMap = {}, lawCount = 16;
+const ymd = (d) => d ? `${d.slice(0, 4)}.${d.slice(4, 6)}.${d.slice(6, 8)}` : '';
+const lawDate = (key) => ymd(lawMap[String(key || '').split('|')[0]]);
+const MODE = { hybrid: '하이브리드(BM25 + 의미 검색)', bm25: 'BM25', dense: '의미 검색(bge-m3)' };
+const ICON = { check: '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>', warn: '<svg viewBox="0 0 24 24"><path d="M12 7v6M12 17h.01"/></svg>', dash: '<svg viewBox="0 0 24 24"><path d="M7 12h10"/></svg>' };
+const SEARCHING = '<span class="sub">BM25(단어) + bge-m3(의미)로 조문을 찾아 순위를 합치는 중</span>';
+
+// ── 예시 질문 — 사이드바 전부, 빈 화면 카드는 4개(거절 예시 하나 포함) ──
+const exHTML = (e) => `${esc(e)}${oosSet.has(e) ? '<span class="oos">범위 밖 · 거절 예시</span>' : ''}`;
+const showExamples = (list) => {
+  $('#exlist').innerHTML = list.map((e) => `<button class="ex" data-q="${esc(e)}">${exHTML(e)}</button>`).join('');
+  const oosEx = list.find((e) => oosSet.has(e));
+  const pick = oosEx ? [...list.filter((e) => e !== oosEx).slice(0, 3), oosEx] : list.slice(0, 4);
+  $('#cards').innerHTML = pick.map((e) => `<button class="qcard" data-q="${esc(e)}">${exHTML(e)}</button>`).join('');
+};
+showExamples(defaultExamples);
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-q]'); if (b) { closeMenu(); ask(b.dataset.q); } });
+
+// ── 사이드바(휴대폰) ──
+const closeMenu = () => { $('#app').classList.remove('menu'); $('#scrim').hidden = true; };
+$('#menu').onclick = () => { $('#app').classList.add('menu'); $('#scrim').hidden = false; };
+$('#scrim').onclick = closeMenu;
+const newChat = () => { closeMenu(); $$('#thread > :not(#hello)').forEach((n) => n.remove()); $('#hello').hidden = false; q.focus(); };
+$('#newchat').onclick = newChat; $('#newchat2').onclick = newChat;
+
+// ── 입력창 ──
+let busy = false;
+const q = $('#q'), go = $('#go');
+const fit = () => { q.style.height = 'auto'; q.style.height = Math.min(200, q.scrollHeight) + 'px'; go.disabled = busy || !q.value.trim(); };
+q.addEventListener('input', fit);
+q.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); if (!go.disabled) ask(q.value); } });
+go.onclick = () => ask(q.value);
+$$('.tg').forEach((b) => b.onclick = () => b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'));
+const on = (id) => $('#' + id).getAttribute('aria-pressed') === 'true';
+
+// ── 단계 카드 ──
+const STEPS = [
+  ['rewrite', '법령 용어로 바꾸기', '질의 재작성'],
+  ['search', '하이브리드 검색', ''],
+  ['generate', '조문 인용 답변 작성', 'Claude'],
+  ['grade', '근거 점검', 'LangGraph — 근거가 없을 때만 다시 찾기'],
+];
+function stepsCard(searchMode) {
+  const el = document.createElement('div'); el.className = 'steps';
+  el.innerHTML = `<button class="steps-h" aria-expanded="true">처리 과정 <span class="sum">진행 중</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><ol>${STEPS.map(([k, t, s], i) =>
+    `<li class="st" data-k="${k}"><span class="dot">${i + 1}</span><span class="t">${t}<small>${esc(k === 'search' ? MODE[searchMode] || searchMode : s)}</small></span><span class="ms"></span><div class="d"></div></li>`).join('')}</ol>`;
+  $('.steps-h', el).onclick = () => { el.classList.toggle('fold'); $('.steps-h', el).setAttribute('aria-expanded', !el.classList.contains('fold')); };
+  return el;
+}
+const setStep = (card, k, state, { d, ms, html } = {}) => {
+  const li = $(`[data-k="${k}"]`, card); if (!li) return;
+  li.classList.remove('active', 'done', 'warn', 'skip'); if (state) li.classList.add(state);
+  const n = STEPS.findIndex((s) => s[0] === k) + 1;
+  $('.dot', li).innerHTML = state === 'done' ? ICON.check : state === 'warn' ? ICON.warn : state === 'skip' ? ICON.dash : n;
+  if (ms != null) $('.ms', li).textContent = ms >= 1000 ? `${(ms / 1000).toFixed(1)}s` : `${ms}ms`;
+  if (html != null) $('.d', li).innerHTML = html; else if (d != null) $('.d', li).insertAdjacentHTML('beforeend', d);
+};
+const chips = (arr, cls = '') => `<div class="chips">${arr.map((x, i) => `<span class="c ${cls}" style="--i:${i}">${x}</span>`).join('')}</div>`;
+const hitChips = (hits) => chips(hits.map((h) => `<b>${h.rank}</b>${esc(h.label)}`), 'hit');
+
+// 서버가 보낸 단계 하나를 카드에 반영한다
+function onEvent(card, ev, ctx) {
+  const rp = ev.replay ? '<span class="replay">저장된 실행 기록</span>' : '';
+  if (ev.step === 'rewrite') {
+    if (ev.status === 'start') return setStep(card, 'rewrite', 'active', { html: '<span class="sub">일상어를 법령 용어로 바꾸는 중</span>' });
+    if (ev.skipped) { setStep(card, 'rewrite', 'skip', { html: `<span class="sub">${ctx.rw ? '원 질문 그대로 검색' : '질의 재작성 끔 — 원 질문 그대로 검색'}</span>` }); return setStep(card, 'search', 'active', { html: SEARCHING }); }
+    if (ev.failed) setStep(card, 'rewrite', 'warn', { ms: ev.ms, html: '<span class="sub">재작성 실패 — 원 질문으로 검색</span>' });
+    else setStep(card, 'rewrite', 'done', { ms: ev.ms, html: (ev.laws?.length ? chips(ev.laws.map(esc), 'law') : '') + (ev.terms ? chips(String(ev.terms).split(/\s+/).filter(Boolean).slice(0, 14).map(esc)) : '') + rp });
+    return setStep(card, 'search', 'active', { html: SEARCHING });
+  }
+  if (ev.step === 'search') {
+    if (ev.status === 'start') return setStep(card, 'search', 'active', { html: SEARCHING });
+    setStep(card, 'search', 'done', { ms: ev.replay && !ev.ms ? undefined : ev.ms, html: `<span class="sub">상위 ${ev.hits.length}개 조문 — 순위대로</span>` + hitChips(ev.hits) + rp });
+    ctx.firstHits = new Set(ev.hits.map((h) => h.key));
+    return setStep(card, 'generate', 'active', { html: '<span class="sub">찾은 조문 안에서만, 조문 번호를 달아 답을 쓰는 중</span>' });
+  }
+  if (ev.step === 'generate') {
+    if (ev.status === 'start') return setStep(card, 'generate', 'active', { html: '<span class="sub">찾은 조문 안에서만, 조문 번호를 달아 답을 쓰는 중</span>' });
+    ctx.gen = (ctx.gen || 0) + 1;
+    if (ev.answerable === false && ctx.gen === 1 && !ev.replay) {   // 근거 없음 → 점검관(LangGraph)이 이어받는다
+      setStep(card, 'generate', 'warn', { ms: ev.ms, html: '<span class="sub">이 조문들로는 답할 수 없다고 판단 — 점검으로 넘김</span>' });
+      return setStep(card, 'grade', 'active', { html: '<span class="sub">빠진 정보가 있는지, 범위 밖 질문인지 점검하는 중</span>' });
+    }
+    const again = ctx.gen > 1 ? '다시 찾은 근거로 ' : '';
+    setStep(card, 'generate', ev.answerable === false ? 'warn' : 'done', { ms: ev.ms, html: `<span class="sub">${again}${ev.answerable === false ? '근거 없음 — 답하지 않음' : '근거 조문을 번호로 인용해 답변'}</span>${rp}` });
+    if (ctx.gen === 1) setStep(card, 'grade', 'skip', { html: `<span class="sub">${ev.answerable === false ? '근거 없음으로 마무리' : '첫 검색으로 충분 — 점검 생략'}</span>` });
+    else setStep(card, 'grade', ev.answerable === false ? 'warn' : 'done', { d: `<div class="sub" style="margin-top:4px">→ ${ev.answerable === false ? '다시 찾아도 근거 없음' : '다시 찾은 근거로 답변'}</div>` });
+    return;
+  }
+  if (ev.step === 'grade') {
+    const v = ev.verdict || {};
+    const txt = v.out_of_scope ? '<b>범위 밖 질문</b> — 색인한 법령이 다루지 않아 더 찾지 않음' : v.sufficient ? '근거는 그대로 — 더 찾지 않음' : `<b>빠진 정보</b> ${esc(v.missing || '')}`;
+    return setStep(card, 'grade', v.out_of_scope || v.sufficient ? 'warn' : 'active', { ms: ev.ms, html: `<span class="sub">${txt}</span>` });
+  }
+  if (ev.step === 'research') {
+    const added = (ev.hits || []).filter((h) => !ctx.firstHits?.has(h.key));
+    setStep(card, 'grade', 'active', { d: `<div class="sub" style="margin-top:6px">다시 찾기 — <b>${esc(String(ev.query || '').replace(ctx.q, '').trim())}</b></div>` + (added.length ? chips(added.map((h) => `<b>+</b>${esc(h.label)}`), 'hit new') : '<div class="sub">새로 찾은 조문 없음</div>') });
+    return setStep(card, 'generate', 'active', { html: '<span class="sub">다시 찾은 근거를 더해 답을 쓰는 중</span>' });
+  }
+}
+
+// ── 답변 · 근거 ──
+function renderResult(card, wrap, r, ctx) {
+  const cited = new Set(r.cited || []);
+  const total = (r.searchMs || 0) + (r.llmMs || 0);
+  $('.sum', card).textContent = r.error && !r.sources ? '실패' : [total ? (total >= 1000 ? (total / 1000).toFixed(1) + 's' : total + 'ms') : '', r.agent ? `LLM ${r.agent.calls}회` : '', r.replay ? '저장된 답변' : ''].filter(Boolean).join(' · ') || '완료';
+  if (ctx.only) { setStep(card, 'generate', 'skip', { html: '<span class="sub">검색만 모드 — 답변 없음</span>' }); setStep(card, 'grade', 'skip', { html: '' }); }
+  else if (!r.answer && r.answerable == null) { setStep(card, 'generate', 'skip', { html: `<span class="sub">${r.error ? '답변을 만들지 못함' : '데모 한도 · 연결 상태로 답변 없이 근거만'}</span>` }); setStep(card, 'grade', 'skip', { html: '' }); }
+  $$('.st.active', card).forEach((li) => setStep(card, li.dataset.k, 'skip'));
+  let html = '';
+  const isOos = oosSet.has(ctx.q) || r.agent?.outOfScope;
+  if (r.notice) html += `<div class="notice">${esc(r.notice)}</div>`;
+  else if (r.error) html += `<div class="notice">${esc(r.error)}</div>`;
+  else if (r.answerable === false) html += `<div class="notice"><b>근거가 없으면 지어내지 않고 거절합니다.</b> ${isOos ? `색인한 ${lawCount}개 법령(금융 · 개인정보 · 생활 분쟁 · 사기 · 형사)이 다루지 않는 질문입니다${/소득세/.test(ctx.q) ? ' — 소득세법은 색인에 없습니다' : ''}.` : '찾은 조문만으로는 단정할 수 없는 부분이 있습니다.'} 아래 조문은 가장 가까운 것일 뿐 답의 근거가 아닙니다.</div>`;
+  if (r.answer) html += `<div class="answer">${esc(r.answer).replace(/\[(\d+)\]/g, (m, n) => `<button class="cite" data-n="${n}" aria-label="근거 ${n}">${n}</button>`)}</div>`;
+  if (r.sources?.length) html += `<div class="srcs"><div class="srcs-h">근거 조문 ${r.sources.length}</div>${r.sources.map((s, i) => `<div class="src ${cited.has(s.key) ? 'used' : ''}" data-i="${i + 1}"><div class="src-h"><span class="no">${i + 1}</span><b>${esc(s.label)}</b>${lawDate(s.key) ? `<span class="since">${lawDate(s.key)} 시행본</span>` : ''}${cited.has(s.key) ? '<span class="tag">답변에 인용</span>' : ''}${s.ref ? '<span class="tag ref">참조 조문</span>' : ''}</div><pre>${esc(s.text)}</pre></div>`).join('')}</div>`;
+  wrap.insertAdjacentHTML('beforeend', html);
+}
+document.addEventListener('click', (e) => {
+  const c = e.target.closest('.cite');
+  if (c) { const s = $(`.src[data-i="${c.dataset.n}"]`, c.closest('.msg-ai')); if (s) { s.classList.add('open', 'flash'); s.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'center' }); setTimeout(() => s.classList.remove('flash'), 1400); } return; }
+  const s = e.target.closest('.src'); if (s) s.classList.toggle('open');
+});
+
+// ── 묻기 — api/ask 는 단계를 줄 단위로 흘려 준다 ──
+const toBottom = () => { const sc = $('#scroll'); sc.scrollTop = sc.scrollHeight; };
+async function ask(text) {
+  const qq = String(text || '').trim(); if (!qq || busy) return;
+  busy = true; q.value = ''; fit(); $('#hello').hidden = true;
+  const mode = $('#mode').value, only = on('only'), rw = on('rw');
+  const ctx = { q: qq, only, rw };
+  const thread = $('#thread');
+  thread.insertAdjacentHTML('beforeend', `<div class="msg-user">${esc(qq)}</div>`);
+  const ai = document.createElement('div'); ai.className = 'msg-ai'; ai.innerHTML = '<span class="avatar" aria-hidden="true"></span><div class="body"></div>';
+  thread.appendChild(ai); const body = $('.body', ai); const card = stepsCard(mode); body.appendChild(card);
+  if (only || !rw) { setStep(card, 'rewrite', 'skip', { html: `<span class="sub">${only ? '검색만 모드 — 원 질문 그대로 검색' : '질의 재작성 끔 — 원 질문 그대로 검색'}</span>` }); setStep(card, 'search', 'active', { html: SEARCHING }); }
+  else setStep(card, 'rewrite', 'active', { html: '<span class="sub">일상어를 법령 용어로 바꾸는 중</span>' });
+  toBottom();
+  let result = null;
+  try {
+    const res = await fetch(only ? 'api/search' : 'api/ask', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ q: qq, mode, rw: rw && !only, stream: !only }) });
+    if ((res.headers.get('content-type') || '').includes('ndjson') && res.body) {
+      const rd = res.body.getReader(), dec = new TextDecoder(); let buf = '';
+      const line = (l) => { if (!l.trim()) return; const ev = JSON.parse(l); if (ev.step === 'done') result = ev; else { onEvent(card, ev, ctx); toBottom(); } };
+      for (;;) {
+        const { value, done } = await rd.read(); if (done) break;
+        buf += dec.decode(value, { stream: true }); let i;
+        while ((i = buf.indexOf('\n')) >= 0) { line(buf.slice(0, i)); buf = buf.slice(i + 1); }
+      }
+      line(buf);
+    } else {
+      result = await res.json();
+      if (result.sources) setStep(card, 'search', 'done', { ms: result.searchMs, html: `<span class="sub">상위 ${result.sources.length}개 조문 — 순위대로</span>` + hitChips(result.sources.map((s, i) => ({ rank: i + 1, label: s.label }))) });
+    }
+  } catch (e) { result = { error: `요청 실패: ${e.message}` }; }
+  renderResult(card, body, result || { error: '응답이 비어 있습니다' }, ctx);
+  loadQuota();
+  busy = false; fit();
+  // 다 끝나면 내 질문부터 보이게(ChatGPT 처럼) — 단계 카드 · 답이 위로 밀려 가지 않게
+  const um = ai.previousElementSibling; if (um) $('#scroll').scrollTo({ top: um.offsetTop - 16, behavior: still ? 'auto' : 'smooth' });
+  if (innerWidth > 860) q.focus({ preventScroll: true });
+}
+
+// ── 대화창(법령 · 평가) ──
+$('#openLaws').onclick = () => { closeMenu(); $('#dlgLaws').showModal(); };
+$('#openEval').onclick = () => { closeMenu(); $('#dlgEval').showModal(); };
+$$('dialog').forEach((d) => { $('[data-close]', d).onclick = () => d.close(); d.addEventListener('click', (e) => { if (e.target === d) d.close(); }); });
+
+// ── 서버 정보 ──
+fetch('api/meta').then((r) => r.json()).then((m) => {
+  const gw = location.pathname.startsWith('/law/');
+  $('#role').textContent = m.role === 'demo' ? 'DEMO' : '로그인됨';
+  $('#logout').textContent = gw ? '첫 화면' : m.role === 'demo' ? '로그인 화면' : '로그아웃';
+  $('#logout').onclick = async () => { await fetch(gw ? '/api/logout' : 'api/logout', { method: 'POST' }); gw ? (location.href = '/') : location.reload(); };   // uyai 관문 아래면 사이트 로그아웃 → 첫 화면
+  if (m.role === 'demo') {
+    if (m.demoQuestions?.length) showExamples(m.demoQuestions);
+    $('#demoNote').hidden = false;
+    $('#demoNote').textContent = `DEMO — 예시 질문은 미리 만들어 둔 답변과 그때의 실행 기록을 보여 줍니다.${m.live ? ' 직접 입력한 질문은 실시간으로 답변합니다(사이트 전체 하루 한도 — 오른쪽 아래).' : ' 직접 입력한 질문은 근거 조문만 찾아 줍니다.'}`;
+  }
+  if (m.laws?.length) {
+    lawCount = m.laws.length; lawMap = Object.fromEntries(m.laws.map((l) => [l.name, l.effective]));
+    const last = m.laws.map((l) => l.effective).sort().at(-1), got = m.laws.map((l) => l.fetched).sort()[0];
+    $('#lawN').textContent = m.laws.length;
+    $('#lawmeta').textContent = `${m.laws.length}개 · 국가법령정보센터 현행본(${ymd(got)} 기준) · 가장 최근 시행 ${ymd(last)} · 날짜는 각 법령의 시행일`;
+    $('#lawlist').innerHTML = m.laws.map((l) => `<li><span>${esc(l.name)}</span><time>${ymd(l.effective)} 시행</time></li>`).join('');
+    $('#fine').textContent = `법률 자문이 아닙니다 · ${m.laws.length}개 법령 · ${ymd(got)} 기준 현행본 · 근거 조문을 꼭 직접 확인하세요`;
+  }
+  if (!m.eval) return;
+  const f = (x) => Number(x).toFixed(2);
+  $('#openEval').hidden = false; $('#evalmeta').textContent = `질문 ${m.eval.n}개(${m.eval.split}) · 정답 = 근거 조문 · 막대 = hit@5`;
+  const base = { 'bm25': 'BM25', 'dense': '의미 검색', 'hybrid': '하이브리드', 'bm25+rw': 'BM25 + 질의 재작성', 'dense+rw': '의미 검색 + 질의 재작성', 'hybrid+rw': '하이브리드 + 질의 재작성' };
+  const label = (r) => { const mm = r.mode.match(/^(.*?)(?:\(w([\d:]+)\))?$/); return [`${base[mm[1]] || mm[1]}${mm[2] ? ' (BM25:의미 ' + mm[2] + ')' : ''}`, r.model === '-' ? '' : r.model, r.strategy].filter(Boolean).join(' · '); };
+  const isMe = (r) => r.model === m.model && r.mode === (m.w.join() === '1,1' ? 'hybrid+rw' : 'hybrid+rw(w' + m.w.join(':') + ')');
+  $('#evaltbl').innerHTML = `<table><tr><th>검색 방식</th><th>hit@1</th><th>hit@5</th><th>recall@5</th><th>MRR</th></tr>${m.eval.rows.map((r) => `<tr class="${isMe(r) ? 'me' : ''}"><td>${esc(label(r))}${isMe(r) ? ' ← 지금 서비스' : ''}</td><td>${f(r['hit@1'])}</td><td><span class="bar"><i style="--v:${r['hit@5']}"></i>${f(r['hit@5'])}</span></td><td>${f(r['recall@5'])}</td><td>${f(r.mrr)}</td></tr>`).join('')}</table><p class="meta" style="margin-top:12px">hit@k = 정답 조문이 상위 k 안에 있는 질문 비율 · recall@k = 정답 조문 중 상위 k 안에 든 비율 · MRR = 첫 정답 순위의 역수 평균</p>`;
+}).catch(() => { $('#role').textContent = '—'; });
+
+// ── 데모 한도(오른쪽 아래) — api/quota 는 조회만 한다 ──
+const qrow = (title, used, max, note, warn) => `<div class="qrow" style="${warn ? '--qc:var(--warn)' : ''}"><div class="top"><span>${title}</span><span>${used} / ${max}</span></div><div class="qbar"><i style="--v:${Math.min(1, used / max)}"></i></div><p>${note}</p></div>`;
+let Q = null;
+async function loadQuota() {
+  try { Q = await fetch('api/quota', { cache: 'no-store' }).then((r) => r.json()); } catch { return; }
+  if (Q.role !== 'demo') { $('#quota').hidden = true; return; }
+  $('#quota').hidden = false;
+  const d = Q.day, left = Math.max(0, d.max - d.used), out = !Q.live || left === 0, mail = `<a href="mailto:${esc(Q.contact)}">${esc(Q.contact)}</a>`;
+  $('#qtxt').textContent = !Q.live ? '실시간 답변 꺼짐 · 근거만' : left === 0 ? '오늘 한도 — 시연 요청은 메일로' : `오늘 실시간 답변 ${left}회 남음`;
+  $('#qring').style.setProperty('--p', Q.live ? left / d.max : 0); $('#qring').style.setProperty('--qc', out ? 'var(--warn)' : 'var(--accent)');
+  $('#qcard').innerHTML = `<h3>데모 사용 한도</h3>`
+    + qrow('실시간 답변 · 사이트 전체 오늘', d.used, d.max, '모든 데모 방문자를 합친 하루 횟수입니다. 한국 시간 0시에 다시 0이 됩니다.', left === 0)
+    + `<div class="qfoot">예시 질문(미리 만든 답변)은 한도를 쓰지 않습니다. 한도를 넘기면 답변 없이 근거 조문만 보여 드립니다.<br>${left === 0 ? '<b>한도에 걸렸나요?</b> 시연을 원하시면' : '더 보고 싶으시면'} ${mail} 으로 연락 주세요.</div>`;
+}
+const placeQuota = () => { const c = $('.composer'); if (c) $('#quota').style.setProperty('--qb', c.offsetHeight + 10 + 'px'); };
+$('#qbtn').onclick = () => { const c = $('#qcard'); c.hidden = !c.hidden; $('#qbtn').setAttribute('aria-expanded', !c.hidden); if (!c.hidden) loadQuota(); };
+document.addEventListener('click', (e) => { if (!e.target.closest('#quota')) { $('#qcard').hidden = true; $('#qbtn').setAttribute('aria-expanded', false); } });
+addEventListener('resize', placeQuota); new ResizeObserver(placeQuota).observe($('.composer'));
+setInterval(() => { if (!document.hidden && !$('#quota').hidden) loadQuota(); }, 30000);
+loadQuota();
+fit();
+</script>
+</body>
+</html>

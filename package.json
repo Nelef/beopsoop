@@ -1,0 +1,24 @@
+{
+  "name": "finlaw-rag",
+  "version": "1.0.0",
+  "description": "생활·금융 법령 Q&A RAG 데모 (검색 평가 하네스 + MCP)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "@langchain/core": "^1.2.17",
+    "@langchain/langgraph": "^1.5.0",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@qdrant/js-client-rest": "1.15",
+    "pg": "^8.23.1"
+  }
+}

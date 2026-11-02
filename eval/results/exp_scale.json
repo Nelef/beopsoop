@@ -1,0 +1,71 @@
+{
+ "date": "2026-10-13",
+ "queries": 126,
+ "note": "방해 벡터 = 실제 청크 벡터 + 잡음(σ≈0.017/차원) 후 정규화. 실제 법령이 아니라 지연 · 근사 오차 측정용",
+ "rows": [
+  {
+   "scale": 1,
+   "chunks": 2551,
+   "matrixMB": 10,
+   "scan_ms": {
+    "p50": 1.94,
+    "p95": 1.99
+   },
+   "qdrant_ms": {
+    "p50": 2.9,
+    "p95": 5.37
+   },
+   "hnsw_recall_at10": 1,
+   "qdrant_load_s": 2,
+   "indexed": 2551
+  },
+  {
+   "scale": 10,
+   "chunks": 25510,
+   "matrixMB": 99.6,
+   "scan_ms": {
+    "p50": 19.26,
+    "p95": 19.71
+   },
+   "qdrant_ms": {
+    "p50": 2.37,
+    "p95": 5.7
+   },
+   "hnsw_recall_at10": 1,
+   "qdrant_load_s": 9.7,
+   "indexed": 25510
+  },
+  {
+   "scale": 40,
+   "chunks": 102040,
+   "matrixMB": 398.6,
+   "scan_ms": {
+    "p50": 70.91,
+    "p95": 77.48
+   },
+   "qdrant_ms": {
+    "p50": 3.21,
+    "p95": 5.16
+   },
+   "hnsw_recall_at10": 0.9992,
+   "qdrant_load_s": 30.3,
+   "indexed": 102040
+  },
+  {
+   "scale": 100,
+   "chunks": 255100,
+   "matrixMB": 996.5,
+   "scan_ms": {
+    "p50": 181.44,
+    "p95": 202.05
+   },
+   "qdrant_ms": {
+    "p50": 3.08,
+    "p95": 6.22
+   },
+   "hnsw_recall_at10": 0.9532,
+   "qdrant_load_s": 81.4,
+   "indexed": 255100
+  }
+ ]
+}
