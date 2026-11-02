@@ -66,7 +66,7 @@ const limited = (key, max, windowMs = 60000) => { const a = recent(key, windowMs
 // demo 실시간 답변은 user 구독을 쓰므로 IP 당 시간당 · 서버 전체 하루 상한을 둔다(환경변수로 조정)
 const DEMO_DAILY_CAP = +process.env.DEMO_DAILY_CAP || 100;   // IP 제한은 두지 않는다(사용자 지시 2026-10-16) — 사이트 전체 하루 상한만
 const CONTACT = process.env.CONTACT || '';   // 한도에 걸리면 시연 요청 연락처로 안내
-const LIVE = !!process.env.FINLAW_CLAUDE_TOKEN; // 토큰이 있어야 Claude 를 부를 수 있다
+const LIVE = !!(process.env.FINLAW_CLAUDE_TOKEN || process.env.FINLAW_CLAUDE_TOKEN_2 || (process.env.ALT_LLM_URL && process.env.ALT_LLM_KEY)); // Claude 토큰 또는 대체 엔진(uyai LiteLLM)이 있어야 답을 만든다
 let dayKey = '', dayCount = 0;
 const kstDay = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);   // 하루 = 한국 시간 0시 기준
 const dailyTaken = () => { const d = kstDay(); if (d !== dayKey) { dayKey = d; dayCount = 0; } return dayCount >= DEMO_DAILY_CAP ? false : (dayCount++, true); };
