@@ -30,8 +30,8 @@ export function block(k, label, why, untilSec = 0) {
 export function candidates() {
   const out = [];
   for (const [i, t] of [process.env.FINLAW_CLAUDE_TOKEN, process.env.FINLAW_CLAUDE_TOKEN_2].entries())
-    if (t && !out.some((c) => c.tok === t)) out.push({ eng: 'sub', tok: t, label: i ? 'Claude 예비 계정' : 'Claude', key: fp(t) });
-  if (process.env.ALT_LLM_URL && process.env.ALT_LLM_KEY) for (const e of ['codex', 'gemini']) out.push({ eng: e, label: e === 'codex' ? 'Codex(ChatGPT)' : 'Gemini Flash', key: e });
+    if (t && !out.some((c) => c.tok === t)) out.push({ eng: 'sub', tok: t, label: i ? 'Claude 예비' : 'Claude', key: fp(t) });
+  if (process.env.ALT_LLM_URL && process.env.ALT_LLM_KEY) for (const e of ['codex', 'gemini']) out.push({ eng: e, label: e === 'codex' ? 'Codex' : 'Gemini', key: e });
   const live = out.filter((c) => !(BLOCK.get(c.key) > Date.now()));
   return live.length ? live : out.sort((a, b) => (BLOCK.get(a.key) || 0) - (BLOCK.get(b.key) || 0)).slice(0, 1);
 }
