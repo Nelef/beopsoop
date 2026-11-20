@@ -1,4 +1,4 @@
-// 로컬 임베딩(@huggingface/transformers, ONNX). Claude 에는 임베딩 API 가 없어 로컬 모델을 쓴다 — 외부 API 키 없이 이 맥에서 돈다.
+// 로컬 임베딩(@huggingface/transformers, ONNX). Claude 에는 임베딩 API 가 없어 로컬 모델을 쓴다 — 외부 API 키 없이 로컬 CPU 에서 돈다.
 import { pipeline, env } from '@huggingface/transformers';
 
 env.cacheDir = new URL('../data/models/', import.meta.url).pathname;

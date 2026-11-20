@@ -447,7 +447,7 @@ fetch('api/meta').then((r) => r.json()).then((m) => {
   const gw = location.pathname.startsWith('/law/');
   $('#role').textContent = m.role === 'demo' ? 'DEMO' : '로그인됨';
   $('#logout').textContent = gw ? '첫 화면' : m.role === 'demo' ? '로그인 화면' : '로그아웃';
-  $('#logout').onclick = async () => { await fetch(gw ? '/api/logout' : 'api/logout', { method: 'POST' }); gw ? (location.href = '/') : location.reload(); };   // uyai 관문 아래면 사이트 로그아웃 → 첫 화면
+  $('#logout').onclick = async () => { await fetch(gw ? '/api/logout' : 'api/logout', { method: 'POST' }); gw ? (location.href = '/') : location.reload(); };   // 관문 아래면 사이트 로그아웃 → 첫 화면
   if (m.role === 'demo') {
     if (m.demoQuestions?.length) showExamples(m.demoQuestions);
     $('#demoNote').hidden = false;

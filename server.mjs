@@ -43,7 +43,7 @@ const safeEq = (a, b) => { const x = Buffer.from(String(a)), y = Buffer.from(Str
 const sign = (s) => createHmac('sha256', SECRET).update(s).digest('base64url');
 const makeToken = (role, sec) => { const body = `${role}.${Math.floor(Date.now() / 1000) + sec}`; return `${body}.${sign(body)}`; };
 const cookieOf = (req, name) => (req.headers.cookie || '').split(/;\s*/).map((c) => c.split('=')).find(([k]) => k === name)?.[1];
-// uyai 사이트(example.com)에서는 관문(DART Deck 서버)이 로그인을 확인하고 역할을 헤더로 넘긴다 — 비밀 값이 맞을 때만 믿는다
+// 앞단 관문 서버(선택)가 로그인을 확인하고 역할을 헤더로 넘길 수 있다 — GATEWAY_KEY 비밀 값이 맞을 때만 믿는다
 const GATEWAY_KEY = process.env.GATEWAY_KEY || '';
 const REDIRECT_URL = process.env.REDIRECT_URL || '';   // 예: https://example.com/ — 경로와 상관없이 이 주소(첫 화면)로 보낸다
 function roleOf(req) {
@@ -63,10 +63,10 @@ const hits = new Map();
 // 최근 windowMs 안의 허용된 횟수로 막는다(막힌 시도는 세지 않는다 — 계속 눌러도 막히는 시간이 늘지 않게)
 const recent = (key, windowMs) => { const now = Date.now(); const a = (hits.get(key) ?? []).filter((t) => now - t < windowMs); hits.set(key, a); return a; };
 const limited = (key, max, windowMs = 60000) => { const a = recent(key, windowMs); if (a.length >= max) return true; a.push(Date.now()); return false; };
-// demo 실시간 답변은 user 구독을 쓰므로 IP 당 시간당 · 서버 전체 하루 상한을 둔다(환경변수로 조정)
+// demo 실시간 답변은 운영자의 Claude 호출을 쓰므로 IP 당 시간당 · 서버 전체 하루 상한을 둔다(환경변수로 조정)
 const DEMO_DAILY_CAP = +process.env.DEMO_DAILY_CAP || 100;   // IP 제한은 두지 않는다(사용자 지시 2026-10-16) — 사이트 전체 하루 상한만
 const CONTACT = process.env.CONTACT || '';   // 한도에 걸리면 시연 요청 연락처로 안내
-const LIVE = !!(process.env.FINLAW_CLAUDE_TOKEN || process.env.FINLAW_CLAUDE_TOKEN_2 || (process.env.ALT_LLM_URL && process.env.ALT_LLM_KEY)); // Claude 토큰 또는 대체 엔진(uyai LiteLLM)이 있어야 답을 만든다
+const LIVE = !!(process.env.FINLAW_CLAUDE_TOKEN || process.env.FINLAW_CLAUDE_TOKEN_2 || (process.env.ALT_LLM_URL && process.env.ALT_LLM_KEY)); // Claude 토큰 또는 대체 엔진(ALT_LLM_URL)이 있어야 답을 만든다
 let dayKey = '', dayCount = 0;
 const kstDay = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);   // 하루 = 한국 시간 0시 기준
 const dailyTaken = () => { const d = kstDay(); if (d !== dayKey) { dayKey = d; dayCount = 0; } return dayCount >= DEMO_DAILY_CAP ? false : (dayCount++, true); };
@@ -81,7 +81,7 @@ createServer(async (req, res) => {
   try {
     const url = req.url.split('?')[0];
     if (url === '/api/health') return send(res, 200, { ok: true, chunks: idx.chunks.length });
-    // 옛 주소(beopsoop.…) → uyai 사이트 첫 화면으로 옮김(2026-10-16). REDIRECT_URL 이 있을 때만, 관문(uyai)이 보낸 요청은 그대로 받는다
+    // REDIRECT_URL 이 있으면 직접 들어온 요청을 그 주소로 보낸다. 관문이 보낸 요청은 그대로 받는다
     if (REDIRECT_URL && !(GATEWAY_KEY && safeEq(req.headers['x-uyai-key'] || '', GATEWAY_KEY))) {
       res.writeHead(301, { location: REDIRECT_URL, 'cache-control': 'no-store' }); return res.end();
     }
@@ -143,7 +143,7 @@ createServer(async (req, res) => {
       }
 
       const t0 = Date.now();
-      // 주인 Claude 구독이 남에게 쓰이면 텔레그램으로 알린다(사용자 지정 2026-10-27) — 데모 방문자, uyai 를 거친 관리자가 아닌 계정만. 직접 로그인(주인)은 뺀다
+      // 운영자의 Claude 호출이 남에게 쓰이면 텔레그램으로 알린다(선택) — 데모 방문자, 관문을 거친 관리자가 아닌 계정만. 직접 로그인(운영자)은 뺀다
       const viaGate = GATEWAY_KEY && safeEq(req.headers['x-uyai-key'] || '', GATEWAY_KEY);
       const who = url !== '/api/ask' ? null : role === 'demo' ? '데모 방문자' : viaGate && req.headers['x-uyai-admin'] !== '1' ? `uyai 계정 ${String(req.headers['x-uyai-user'] || '?').slice(0, 32)}` : null;
       const st = { calls: 0, inTok: 0, cacheTok: 0, outTok: 0, cost: 0 };

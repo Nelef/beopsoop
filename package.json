@@ -1,14 +1,15 @@
 {
-  "name": "finlaw-rag",
+  "name": "beopsoop",
   "version": "1.0.0",
-  "description": "생활·금융 법령 Q&A RAG 데모 (검색 평가 하네스 + MCP)",
+  "description": "일상의 말로 묻고 법 조문으로 답하는 한국 법령 RAG (하이브리드 검색 · LangGraph · MCP)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.mjs",
+    "mcp": "node mcp/server.mjs"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "@huggingface/transformers": "^4.3.1",

@@ -1,9 +1,9 @@
 // Claude Code 를 뒤에 두고 `claude -p` 로 부른다. 임베딩은 로컬, 생성만 Claude.
-//  - 로그인: FINLAW_CLAUDE_TOKEN(개인 구독 토큰, `claude setup-token`)이 **필수**다. 없으면 실행을 거부한다 — 의도하지 않은 계정이 쓰이지 않게
-//    정말 기본 로그인을 쓰려면 FINLAW_ALLOW_DEFAULT_LOGIN=1.
+//  - 로그인: FINLAW_CLAUDE_TOKEN(`claude setup-token` 으로 받은 토큰)을 기본으로 쓴다. 없으면 실행을 거부한다 — 의도하지 않은 계정이 쓰이지 않게.
+//    이 컴퓨터의 Claude Code 기본 로그인을 쓰려면 FINLAW_ALLOW_DEFAULT_LOGIN=1.
 //  - 도구 전부 끔(--tools ""), 세션 저장 끔, CLAUDE.md · 자동 메모리 끔 — 순수 "글 넣고 글 받기"로만 쓴다.
 //  - 대체 순서(2026-11-02 사용자 "클로드 토큰 다 쓰면 다른 후보 토큰들도 · codex · 그게 안되면 재미니 flash라도"):
-//    FINLAW_CLAUDE_TOKEN → FINLAW_CLAUDE_TOKEN_2(예비 계정) → Codex → Gemini. Codex · Gemini 는 uyai 컨테이너의 LiteLLM(ALT_LLM_URL · ALT_LLM_KEY,
+//    FINLAW_CLAUDE_TOKEN → FINLAW_CLAUDE_TOKEN_2(예비 계정) → Codex → Gemini. Codex · Gemini 는 LiteLLM 같은 Anthropic 호환 프록시(ALT_LLM_URL · ALT_LLM_KEY,
 //    dart-deck server/alt_llm.py)에 같은 claude -p 를 붙여 모델만 바꾼다. 한도 · 인증 실패가 난 후보는 풀릴 때까지(한도 이벤트의 resetsAt, 없으면 1시간) 건너뛴다.
 import { spawn } from 'node:child_process';
 import { mkdirSync, mkdtempSync } from 'node:fs';
@@ -70,7 +70,7 @@ function runOnce(c, { system, prompt, schema, model, timeoutMs }, last) {
 
 export async function claudeJSON({ system, prompt, schema, model = 'sonnet', timeoutMs = 120000 }) {
   if (!process.env.FINLAW_CLAUDE_TOKEN && !process.env.FINLAW_ALLOW_DEFAULT_LOGIN && !(process.env.ALT_LLM_URL && process.env.ALT_LLM_KEY))
-    throw new Error('FINLAW_CLAUDE_TOKEN 이 없습니다(개인 구독 토큰 필요 — set-token.sh 참고). 기본 로그인은 쓰지 않습니다(FINLAW_ALLOW_DEFAULT_LOGIN=1 이면 사용)');
+    throw new Error('FINLAW_CLAUDE_TOKEN 이 없습니다(`claude setup-token` 으로 받은 토큰 필요). 이 컴퓨터의 기본 로그인을 쓰려면 FINLAW_ALLOW_DEFAULT_LOGIN=1');
   let cs = candidates();
   if (!cs.length && process.env.FINLAW_ALLOW_DEFAULT_LOGIN) cs = [{ eng: 'sub', tok: 'default', label: 'Claude(기본 로그인)', key: 'default' }];
   let last;
